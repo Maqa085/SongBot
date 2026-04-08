@@ -1,14 +1,6 @@
 import os
-
-import pyfiglet
-from aylak import get_keys
-from colorama import Fore, Style, init
 from pyrogram import Client, idle
-
-from bot import *
-from config import *
-
-API_HASH, API_ID = get_keys()
+from config import API_ID, API_HASH, BOT_TOKEN
 
 app = Client(
     "MusicBot",
@@ -19,12 +11,12 @@ app = Client(
 )
 
 if __name__ == "__main__":
+    if not os.path.exists("downloads"):
+        os.makedirs("downloads")
+    
+    print("Bot başladılır...")
     app.start()
-    uname = app.get_me().username
-    os.system("cls" if os.name == "nt" else "clear")
-    uname_fig = pyfiglet.figlet_format(uname)
-    print(f"{Fore.GREEN}{uname_fig}{Style.RESET_ALL}")
-    print(f"{Fore.BLUE}@{uname} Started!{Style.RESET_ALL}")
+    print(f"@{app.get_me().username} İşləyir!")
     idle()
     app.stop()
-    print(f"{Fore.RED}@{uname} Stopped!{Style.RESET_ALL}")
+    
