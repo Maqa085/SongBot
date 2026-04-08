@@ -1,8 +1,6 @@
 pyrogram
-Tgcrypto
-aylak
+tgcrypto
 yt-dlp
 youtube-search
-youtube-search-python
-colorama
 requests
+python-dotenv
